@@ -1,0 +1,24 @@
+# Core (required)
+fastapi>=0.110
+uvicorn[standard]>=0.29
+pydantic>=2.6
+sqlalchemy>=2.0
+numpy>=1.26
+python-dotenv>=1.0
+
+# Real quantum simulation with IBM's Qiskit Aer (recommended; the app falls back
+# to its built-in NumPy statevector engine if these are missing).
+#
+# NOTE: disabled for Vercel — serverless functions have a ~250 MB size limit that
+# qiskit + qiskit-aer exceed. The built-in NumPy engine covers all quantum labs.
+# On Docker / Render / Fly (no size limit) you can re-enable these two lines.
+# qiskit>=1.0
+# qiskit-aer>=0.14
+
+# Postgres driver — required on Vercel (SQLite is not persistent on serverless).
+psycopg[binary]>=3.1
+
+# Topic Visualizer: read instructor-uploaded PDFs, and accept file uploads.
+pypdf>=4.0
+python-multipart>=0.0.9
+neo4j>=5.14        # optional: Brain Map knowledge graph (works in-memory without it)
